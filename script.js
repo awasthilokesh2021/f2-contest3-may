@@ -22,3 +22,30 @@ fetch(url)
    place.innerHTML = out;
 })
 .catch((error )=> console.log('cann`t data fetch'))
+
+
+function searchFunction(){
+
+   let filter = document.getElementById('inputbtn').value.toUpperCase();
+ 
+   let mytable = document.getElementById('table-data')
+
+   let tr = mytable.getElementsByTagName('tr')
+   
+   for(var i=0;i<tr.length;i++){
+      let td = tr[i].getElementsByTagName('td')[0];
+      if(td){
+
+         let textvalue = td.textContent || td.innerHTML;
+
+         if(textvalue.toUpperCase().indexOf(filter) > -1)
+         {
+            tr[i].style.display = "";
+         }
+         else
+         {
+            tr[i].style.display = 'none';
+         }
+      }
+   }
+}
